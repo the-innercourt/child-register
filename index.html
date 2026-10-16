@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<!-- Only this site's own files may run, and the page may only talk to a *.workers.dev address -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src https://*.workers.dev; base-uri 'none'; form-action 'none'">
+<title>Vantora – Register your child</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a237e'/%3E%3Cpath d='M16 20l16 28 16-28' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <span class="wordmark">Vantora</span>
+  <span class="org">Children's department</span>
+</header>
+
+<main class="panel">
+
+  <ol class="steps" id="steps" aria-label="Progress">
+    <li class="is-current" data-step="1"><span class="dot">1</span>Enter details</li>
+    <li data-step="2"><span class="dot">2</span>Done</li>
+  </ol>
+
+  <noscript><p class="notice">This page needs JavaScript turned on to work.</p></noscript>
+
+  <!-- Step 1 -->
+  <section id="step1" class="step" aria-labelledby="h1">
+    <h1 id="h1" tabindex="-1">Register your child</h1>
+    <p class="lead">Fill in the details below. Fields marked * are required.</p>
+
+    <form id="form1" novalidate>
+
+      <h2 class="group first">Child information</h2>
+
+      <label for="childName">Child name *</label>
+      <input id="childName" type="text" autocomplete="off" autocapitalize="words" maxlength="80" required>
+
+      <label for="dob">Date of birth *</label>
+      <input id="dob" type="date" required>
+
+      <label for="age">Age *</label>
+      <input id="age" type="number" inputmode="numeric" min="0" max="30" required>
+      <p class="hint">Filled in automatically from the date of birth.</p>
+
+      <label for="classroom">Classroom *</label>
+      <input id="classroom" type="text" autocomplete="off" autocapitalize="words" maxlength="60" required>
+
+      <h2 class="group">Parent / guardian information</h2>
+
+      <label for="parentName">Parent name *</label>
+      <input id="parentName" type="text" autocomplete="name" autocapitalize="words" maxlength="80" required>
+
+      <label for="parentPhone">Parent phone *</label>
+      <input id="parentPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="08012345678" maxlength="20" required>
+
+      <label for="parentEmail">Parent email (optional)</label>
+      <input id="parentEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" maxlength="120">
+
+      <h2 class="group">Security verification</h2>
+
+      <label for="securityQuestion">Security question *</label>
+      <input id="securityQuestion" type="text" autocomplete="off" maxlength="120" required>
+      <p class="hint">For example: What is your favourite colour?</p>
+
+      <label for="securityAnswer">Security answer *</label>
+      <div class="pw">
+        <input id="securityAnswer" type="password" autocomplete="off" maxlength="80" required>
+        <button class="pwbtn" id="toggleAnswer" type="button" aria-pressed="false">Show</button>
+      </div>
+      <p class="hint">You will need this answer when collecting your child.</p>
+
+      <div id="codeBox" class="hidden">
+        <label for="code">Registration code *</label>
+        <input id="code" type="text" autocomplete="off" maxlength="40">
+        <p class="hint">Ask the children's department for this code.</p>
+      </div>
+
+      <button class="btn" id="btn1" type="submit" data-label="Register child">Register child</button>
+    </form>
+  </section>
+
+  <!-- Step 2 -->
+  <section id="step2" class="step hidden" aria-labelledby="h2">
+    <div class="tick" aria-hidden="true">&#10003;</div>
+    <h1 id="h2" tabindex="-1">Child registered</h1>
+    <p class="lead" id="doneMsg"></p>
+    <div class="idbox">
+      <span class="idlabel">Child ID</span>
+      <strong id="childId"></strong>
+    </div>
+    <p class="lead" id="qrWrap"></p>
+    <button class="textbtn" id="another" type="button">Register another child</button>
+  </section>
+
+  <div id="error" class="error hidden" role="alert"></div>
+</main>
+
+<footer class="foot">Need help? Speak to your church children's department admin.</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
